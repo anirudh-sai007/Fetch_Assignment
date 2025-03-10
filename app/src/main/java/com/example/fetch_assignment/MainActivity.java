@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                     reader.close();
                     httpURLConnection.disconnect();
 
+                    //sort by listid
+
                     JSONArray jsonArray=new JSONArray(sb.toString());
                     List<ItemsList> listItems=new ArrayList<>();
                     for(int i=0;i<jsonArray.length();i++)
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                         listItems.add(new ItemsList(id,listid,name));
 
                     }
+
+                    //group by list id and name
 
                     Collections.sort(listItems, new Comparator<ItemsList>() {
                         @Override
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
-
+    // I want to make the list id text bold
     public static class CustomAdapter extends ArrayAdapter<String>
     {
         public CustomAdapter(MainActivity activity, ArrayList<String> stringArrayList)
